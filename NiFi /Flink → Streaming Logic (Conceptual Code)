@@ -1,0 +1,8 @@
+def stream_processor(events):
+    state = {}
+
+    for event in events:
+        user = event["user"]
+        state[user] = state.get(user, 0) + event["value"]
+
+    return state
