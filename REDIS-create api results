@@ -1,0 +1,9 @@
+cache = {}
+
+def get_data(key):
+    if key in cache:
+        return cache[key]
+
+    data = f"value_for_{key}"
+    cache[key] = data
+    return data
