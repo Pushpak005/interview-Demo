@@ -1,0 +1,12 @@
+def extract():
+    return [{"id": 1, "amount": 100}]
+
+def transform(data):
+    for row in data:
+        row["amount"] *= 1.1
+    return data
+
+def load(data):
+    print("Loaded:", data)
+
+load(transform(extract()))
