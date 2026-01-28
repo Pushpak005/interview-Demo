@@ -1,0 +1,14 @@
+import time
+from collections import deque
+
+calls = deque()
+
+def allow_request(limit=5):
+    now = time.time()
+    while calls and now - calls[0] > 60:
+        calls.popleft()
+
+    if len(calls) >= limit:
+        raise Exception("Rate limit exceeded")
+
+    calls.append(now)
