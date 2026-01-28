@@ -1,0 +1,7 @@
+def upload_to_storage(data):
+    print("Uploading to cloud storage")
+
+def read_from_storage():
+    return {"file": "data"}
+
+upload_to_storage(read_from_storage())
