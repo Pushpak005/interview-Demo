@@ -1,0 +1,8 @@
+def get_user(user_id):
+    cached = redis.get(user_id)
+    if cached:
+        return cached
+
+    user = db.fetch_user(user_id)
+    redis.set(user_id, user, ex=60)
+    return user
