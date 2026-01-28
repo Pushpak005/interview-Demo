@@ -1,0 +1,9 @@
+from concurrent.futures import ThreadPoolExecutor
+
+def process(item):
+    return item * 2
+
+items = [1, 2, 3, 4]
+
+with ThreadPoolExecutor(max_workers=4) as executor:
+    results = list(executor.map(process, items))
